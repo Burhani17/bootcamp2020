@@ -7,7 +7,7 @@ name: My 1st Surge Deploy
 on:
   push:
     branches: [ master ]
-
+    
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -22,7 +22,7 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Installing Node
-    - uses: actions/setup-node@v2-beta
+      uses: actions/setup-node@v2-beta
       with:
         node-version: 12  
 
@@ -30,4 +30,4 @@ jobs:
     - name: Installing Surge
       run:  npm install --global surge
     - name: Deploying Using Surge
-      run: surge ./  my1stsurgedeploy.surge.sh --token $ {{ secrects.SURGE_TOKEN }}
+      run: surge ./ my1stsurgedeploy.surge.sh --token $ {{ secrects.SURGE_TOKEN }}
